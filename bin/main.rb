@@ -33,7 +33,23 @@ until answer == 'computer'
     break
   end
 end
+comp = Computer.new
+inpp = ""
+if computer
+puts "\n\nChoose difficulty!!!\n"
+puts "\nBeginner/Easy press \'e\'\n"
+puts "\nAdvanced/Medium press \'m\'\n"
+puts "\nNightmare/Hard press \'h\'\n\n\n"
 
+until inpp == "y"
+inpp = gets.chomp
+if inpp == "e" || inpp == "m" || inpp == "h"
+  comp.difficulty(inpp)
+  break
+end
+puts "Choose between \'e\' or \'m\' or \'h\'"
+end
+end
 puts "\nGame Instructions"
 puts '-----------------'
 puts "\n  1)The game is played on a grid that's 3 squares by 3 squares.\n"
@@ -42,7 +58,7 @@ puts "\n  2)Write a number between 1 and 9\n
 puts "\n  3)Once a player gets 3 marks in a row\n
   (up, down, across, or diagonally) is the winner.\n"
 puts "\n  4)If all 9 squares are full the game is over.\n"
-puts computer
+
 player2name = ''
 player1name = ''
 puts "\nPlayerOne\n"
@@ -92,7 +108,7 @@ else
   puts "\n\n You will have to destroy the terminator before he destroys all humankind!!!\n\n"
   sleep 2
 end
-comp = Computer.new
+
 comp.marke = player1.mark == 'x' ? 'o' : 'x'
 print " 1 | 2 | 3 \n---+---+---\n 4 | 5 | 6 \n---+---+---\n 7 | 8 | 9 \n"
 
@@ -105,7 +121,7 @@ until winning
     if computer
       puts 'The Terminator has destroyed all humankind and has won the game!!!'
     else
-      puts "#{player2.name} has won the game!!!"
+      puts "#{player1.name} has won the game!!!"
     end
     sleep 2
     puts "Do you want to play again? write \"y\" or \"n\""

@@ -22,11 +22,12 @@ class Computer < Board
       ((@@cells[arr[0]] == @@cells[arr[1]]) && @@cells[arr[2]].class != String) || ((@@cells[arr[0]] == @@cells[arr[2]]) && @@cells[arr[1]].class != String) || ((@@cells[arr[1]] == @@cells[arr[2]]) && @@cells[arr[0]].class != String)
     end
   end
-
+  def difficulty(input)
+    @level = input
+  end
   def play
-    if @@cells[4].class != String
-      5
-    elsif possible
+
+    if possible
 
       POSSIBLE_WINS.each do |arr|
         if (@@cells[arr[0]] == @@cells[arr[1]]) && (@@cells[arr[2]].class != String)
@@ -41,6 +42,10 @@ class Computer < Board
 
         end
       end
+    elsif @@cells[4].class != String && (@level == "m" || @level == "h")
+      5
+    elsif @@cells[2].class != String && @level == "h"
+      3
     else
 
       @@cells.each_with_index do |n, i|

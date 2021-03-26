@@ -10,14 +10,15 @@ class Game
                    [2, 5, 8],
                    [0, 4, 8],
                    [6, 4, 2]].freeze
-  @@cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   def initialize
+    @@cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
     @board_display = " #{@@cells[0]} | #{@@cells[1]} | #{@@cells[2]} ",
-                     "\n---+---+---\n",
-                     " #{@@cells[3]} | #{@@cells[4]} | #{@@cells[5]} ",
-                     "\n---+---+---\n",
-                     " #{@@cells[6]} | #{@@cells[7]} | #{@@cells[8]} \n"
-  end
+    '---+---+---',
+    " #{@@cells[3]} | #{@@cells[4]} | #{@@cells[5]} ",
+    '---+---+---',
+    " #{@@cells[6]} | #{@@cells[7]} | #{@@cells[8]} "
+end
 
   def cel
     @@cells

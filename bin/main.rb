@@ -98,20 +98,72 @@ print " 1 | 2 | 3 \n---+---+---\n 4 | 5 | 6 \n---+---+---\n 7 | 8 | 9 \n"
 
 winning = false
 until winning
-
-  if board.verify && turn
+  if winning
+      break 
+    
+  elsif board.verify && turn
     if computer
       puts 'The Terminator has destroyed all humankind and has won the game!!!'
     else
       puts "#{player2.name} has won the game!!!"
     end
-    break
+    sleep 2
+    puts "Do you want to play again? write \"y\" or \"n\""
+    answer = ""
+    until answer == "y"
+      answer = gets.chomp.downcase
+      if answer == "y"
+        board = Board.new
+        puts board.display
+        sleep 1
+        break
+      elsif answer =="n"
+        winning = true
+        break
+      end
+      puts "Write \'y\' to play again or \'n\' to stop playing."
+    end
   elsif board.verify
-    puts "#{player1.name} has won the game!!!"
-    break
+    if computer
+      puts 'You have destroyed the Terminator and saved the world by winning the game!!!'
+    else
+      puts "#{player2.name} has won the game!!!"
+    end     
+    sleep 2
+    puts "Do you want to play again? write \"y\" or \"n\""
+    answer = ""
+    until answer == "y"
+      answer = gets.chomp.downcase
+      if answer == "y"
+        board = Board.new
+        puts board.display
+        sleep 1
+        break
+      elsif answer =="n"
+        winning = true
+        break
+      end
+      puts "Write \'y\' to play again or \'n\' to stop playing."
+    end
   elsif board.full
     puts "It's a draw!!!!"
-    break
+    sleep 2
+    puts "Do you want to play again? write \"y\" or \"n\""
+    answer = ""
+    until answer == "y"
+      answer = gets.chomp.downcase
+      if answer == "y"
+        board = Board.new
+        puts board.display
+        sleep 1
+        break
+      elsif answer =="n"
+        winning = true
+        break
+      end
+      puts "Write \'y\' to play again or \'n\' to stop playing."
+    end
+   
   elsif turn
     puts "\nIt is #{player1.name} turn"
     puts 'Enter a value between 1-9.'

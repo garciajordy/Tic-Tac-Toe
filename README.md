@@ -19,6 +19,10 @@ $ cd <folder>
 $ git clone https://github.com/JulianaOsemeke/tic_tac_toe
 ```
 
+## Live Demo
+
+[![Run on Repl.it](https://repl.it/badge/github/replit/workspace)](https://replit.com/@JordyGarcia/Tic-Tac-Toe-1#.replit)
+
 ## To Play The Game
 
 ```
